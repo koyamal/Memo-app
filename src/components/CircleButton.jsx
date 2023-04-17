@@ -1,13 +1,20 @@
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
+/* eslint-disable-next-line */
+import { string } from 'prop-types';
 
-export default function CircleButton() {
+export default function CircleButton(props) {
+  const { children } = props;
   return (
     <View style={styles.circleButton}>
-      <Text style={styles.circleButtonLabel}>+</Text>
+      <Text style={styles.circleButtonLabel}>{children}</Text>
     </View>
   );
 }
+
+CircleButton.propTypes = {
+  children: string.isRequired,
+};
 
 const styles = StyleSheet.create({
   circleButton: {
