@@ -40,6 +40,10 @@ export default function App() {
           </View>
         </View>
       </View>
+
+      <View>
+        <Text>+</Text>
+      </View>
     </View>
   );
 }
