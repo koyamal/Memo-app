@@ -27,7 +27,7 @@ export default function MemoDetailScreen() {
           特に暑い日は風が吹くだけで涼しくなります。
         </Text>
       </ScrollView>
-      <CircleButton style={{ top: 160, bottom: 'auto' }}>+</CircleButton>
+      <CircleButton name="edit-2" style={{ top: 160, bottom: 'auto' }} />
     </View>
   );
 }
