@@ -5,9 +5,15 @@ import { StyleSheet, Text, View } from 'react-native';
 import Hello from './src/components/Hello';
 
 export default function App() {
+  const style = {
+    fontSize: 60,
+    backgroundColor: 'orange',
+  };
+
   return (
     <View style={styles.container}>
       <Hello bang>World</Hello>
+      <Hello bang style={style}>Big World</Hello>
       <Text>Open up App.js to start working on your app!</Text>
       {/* eslint-disable-next-line */}
       <StatusBar style="auto" />
