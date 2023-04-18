@@ -4,7 +4,6 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  Alert,
   TouchableOpacity,
 } from 'react-native';
 import AppBar from '../components/AppBar';
@@ -18,7 +17,7 @@ export default function SignUpScreen() {
         <Text style={styles.title}>Sign Up</Text>
         <TextInput style={styles.input} value="Email Address" />
         <TextInput style={styles.input} value="Password" />
-        <Button label="Submit" onPress={() => { Alert.alert('Submit'); }} />
+        <Button label="Submit" />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already registered?</Text>
           <TouchableOpacity>
