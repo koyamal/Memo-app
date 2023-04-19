@@ -6,13 +6,11 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import AppBar from '../components/AppBar';
 import CircleButton from '../components/CircleButton';
 
 export default function MemoDetailScreen() {
   return (
     <View style={styles.container}>
-      <AppBar />
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle}>買い物リスト1</Text>
         <Text style={styles.memoDate}>2023/4/17 16:05</Text>
