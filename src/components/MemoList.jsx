@@ -1,3 +1,4 @@
+/* eslint import/no-extraneous-dependencies: 0 */
 import React from 'react';
 import {
   StyleSheet,
@@ -5,13 +6,17 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-/* eslint-disable-next-line */
+import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
 
 export default function MemoList() {
+  const navigation = useNavigation();
   return (
     <View>
-      <View style={styles.memoListItem}>
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト1</Text>
           <Text style={styles.memoListItemDate}>2023/4/17 16:05</Text>
@@ -19,7 +24,7 @@ export default function MemoList() {
         <TouchableOpacity>
           <Feather name="x" size={16} color="#B0B0B0" />
         </TouchableOpacity>
-      </View>
+      </TouchableOpacity>
       <View style={styles.memoListItem}>
         <View>
           <Text style={styles.memoListItemTitle}>買い物リスト2</Text>
