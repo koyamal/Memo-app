@@ -1,42 +1,69 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import React from 'react';
+import * as React from 'react';
+import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MemoListScreen from './src/screens/MemoListScreen';
-import MemoDetailScreen from './src/screens/MemoDetailScreen';
-import MemoEditScreen from './src/screens/MemoEditScreen';
-import MemoCreateScreen from './src/screens/MemoCreateScreen';
-import LogInScreen from './src/screens/LogInScreen';
-import SignUpScreen from './src/screens/SignUpScreen';
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        title="Go to Profile"
+        onPress={() => navigation.navigate('Profile')}
+      />
+    </View>
+  );
+}
+
+function ProfileScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        title="Go to Notifications"
+        onPress={() => navigation.navigate('Notifications')}
+      />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function NotificationsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button
+        title="Go to Settings"
+        onPress={() => navigation.navigate('Settings')}
+      />
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
+
+function SettingsScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button title="Go back" onPress={() => navigation.goBack()} />
+    </View>
+  );
+}
 
 const Stack = createStackNavigator();
+
+function MyStack() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Notifications" component={NotificationsScreen} />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+    </Stack.Navigator>
+  );
+}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="SignUp"
-        screenOptions={{
-          headerStyle: { backgroundColor: '#467FD3' },
-          headerTitleStyle: { color: '#ffffff' },
-          headerTitle: 'Memo App',
-          headerTintColor: '#ffffff',
-          headerBackTitle: 'Back',
-        }}
-      >
-        <Stack.Screen name="MemoList" component={MemoListScreen} />
-        <Stack.Screen name="MemoDetail" component={MemoDetailScreen} />
-        <Stack.Screen name="MemoEdit" component={MemoEditScreen} />
-        <Stack.Screen name="MemoCreate" component={MemoCreateScreen} />
-        <Stack.Screen name="LogIn" component={LogInScreen} />
-        <Stack.Screen name="SignUp" component={SignUpScreen} />
-      </Stack.Navigator>
+      <MyStack />
     </NavigationContainer>
-    // <MemoListScreen />
-    // <MemoDetailScreen />
-    // <MemoEditScreen />
-    // <MemoCreateScreen />
-    // <LogInScreen />
-    // <SignUpScreen />
   );
 }
