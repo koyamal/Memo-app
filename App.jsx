@@ -9,7 +9,7 @@ function HomeScreen({ navigation }) {
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
         title="Go to Profile Page"
-        onPress={() => navigation.navigate('Profile')}
+        onPress={() => { navigation.navigate('Profile'); }}
       />
     </View>
   );
@@ -22,7 +22,7 @@ function ProfileScreen({ navigation }) {
         title="Go to Notifications Page"
         onPress={() => navigation.navigate('Notifications')}
       />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Go back" onPress={() => { navigation.goBack(); }} />
     </View>
   );
 }
@@ -34,7 +34,7 @@ function NotificationsScreen({ navigation }) {
         title="Go to Setting Page"
         onPress={() => navigation.navigate('Settings')}
       />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Go back" onPress={() => { navigation.goBack(); }} />
     </View>
   );
 }
@@ -42,7 +42,7 @@ function NotificationsScreen({ navigation }) {
 function SettingsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Go back" onPress={() => { navigation.goBack(); }} />
     </View>
   );
 }
