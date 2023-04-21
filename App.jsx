@@ -8,7 +8,7 @@ function HomeScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
-        title="Go to Profile"
+        title="Go to Profile Page"
         onPress={() => navigation.navigate('Profile')}
       />
     </View>
@@ -19,7 +19,7 @@ function ProfileScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
-        title="Go to Notifications"
+        title="Go to Notifications Page"
         onPress={() => navigation.navigate('Notifications')}
       />
       <Button title="Go back" onPress={() => navigation.goBack()} />
@@ -31,7 +31,7 @@ function NotificationsScreen({ navigation }) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
-        title="Go to Settings"
+        title="Go to Setting Page"
         onPress={() => navigation.navigate('Settings')}
       />
       <Button title="Go back" onPress={() => navigation.goBack()} />
