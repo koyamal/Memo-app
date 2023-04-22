@@ -30,7 +30,6 @@ export default function SignUpScreen(props) {
           value={password}
           autoCapitalize="none"
           placeholder="Password"
-          // secureTextEntry="true"
           secureTextEntry
           textContentType="password"
           onChangeText={(text) => { setPassword(text); }}
