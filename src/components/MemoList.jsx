@@ -5,6 +5,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -21,7 +22,10 @@ export default function MemoList() {
           <Text style={styles.memoListItemTitle}>買い物リスト1</Text>
           <Text style={styles.memoListItemDate}>2023/4/17 16:05</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { Alert.alert('Are you sure?'); }}
+          style={styles.memoDelete}
+        >
           <Feather name="x" size={16} color="#B0B0B0" />
         </TouchableOpacity>
       </TouchableOpacity>
@@ -66,5 +70,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: '#848484',
+  },
+  memoDelete: {
+    padding: 8,
   },
 });
