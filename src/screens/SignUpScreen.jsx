@@ -19,11 +19,20 @@ export default function SignUpScreen(props) {
         <TextInput
           style={styles.input}
           value={email}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          textContentType="emailAddress"
           onChangeText={(text) => { setEmail(text); }}
         />
         <TextInput
           style={styles.input}
           value={password}
+          autoCapitalize="none"
+          placeholder="Password"
+          // secureTextEntry="true"
+          secureTextEntry
+          textContentType="password"
           onChangeText={(text) => { setPassword(text); }}
         />
         <Button
