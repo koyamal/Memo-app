@@ -22,12 +22,6 @@ export default function App() {
           headerTitle: 'Memo App',
           headerTintColor: '#ffffff',
           headerBackTitle: 'Back',
-          // headerLeft: (props) => {
-          //   const { navigation } = props;
-          //   return (
-          //     <HeaderBackButton onPress={() => { navigation.goBack(); }} />
-          //   )
-          // }
         }}
       >
         <Stack.Screen name="MemoList" component={MemoListScreen} />
