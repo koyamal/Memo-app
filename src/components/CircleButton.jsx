@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-/* eslint-disable-next-line */
 import { string, shape, func } from 'prop-types';
-/* eslint-disable-next-line */
 import { Feather } from '@expo/vector-icons';
 
 export default function CircleButton(props) {

@@ -4,7 +4,6 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-/* eslint-disable-next-line */
 import { string, func } from 'prop-types';
 
 export default function Button(props) {
