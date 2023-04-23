@@ -20,6 +20,8 @@ export default function SignUpScreen(props) {
       .then((userCredential) => {
         const { user } = userCredential;
         console.log(user.uid);
+      }).catch((error) => {
+        console.log(error.code, error.message);
       });
     navigation.reset({
       index: 0,
