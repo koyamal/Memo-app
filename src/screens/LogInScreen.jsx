@@ -17,11 +17,6 @@ export default function LogInScreen(props) {
   const { navigation } = props;
 
   useEffect(() => {
-    console.log('useEffect..');
-    return () => { console.log('Unmount'); };
-  }, []);
-
-  useEffect(() => {
     const unsubscrible = firebase.auth()
       .onAuthStateChanged((user) => {
         if (user) {
