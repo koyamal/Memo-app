@@ -1,3 +1,4 @@
+/* eslint import/no-extraneous-dependencies: 0 */
 import React, { useState } from 'react';
 import {
   View,
@@ -6,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import firebase from 'firebase';
 import Button from '../components/Button';
 
 export default function SignUpScreen(props) {
@@ -14,6 +16,11 @@ export default function SignUpScreen(props) {
   const { navigation } = props;
 
   function handlePress() {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const { user } = userCredential;
+        console.log(user.uid);
+      });
     navigation.reset({
       index: 0,
       routes: [{ name: 'MemoList' }],
