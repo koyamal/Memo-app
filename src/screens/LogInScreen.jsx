@@ -17,7 +17,12 @@ export default function LogInScreen(props) {
   const { navigation } = props;
 
   useEffect(() => {
-    firebase.auth()
+    console.log('useEffect..');
+    return () => { console.log('Unmount'); };
+  }, []);
+
+  useEffect(() => {
+    const unsubscrible = firebase.auth()
       .onAuthStateChanged((user) => {
         if (user) {
           navigation.reset({
@@ -26,6 +31,7 @@ export default function LogInScreen(props) {
           });
         }
       });
+    return unsubscrible;
   }, []);
 
   function handlePress() {
