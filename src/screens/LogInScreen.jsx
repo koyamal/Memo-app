@@ -1,5 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   StyleSheet,
@@ -15,6 +15,18 @@ export default function LogInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { navigation } = props;
+
+  useEffect(() => {
+    firebase.auth()
+      .onAuthStateChanged((user) => {
+        if (user) {
+          navigation.reset({
+            index: 0,
+            routes: [{ name: 'MemoList' }],
+          });
+        }
+      });
+  }, []);
 
   function handlePress() {
     firebase.auth().signInWithEmailAndPassword(email, password)
