@@ -1,3 +1,4 @@
+/* eslint import/no-extraneous-dependencies: 0 */
 import React, { useState } from 'react';
 import {
   View,
@@ -5,13 +6,31 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
+import firebase from 'firebase';
 import Button from '../components/Button';
 
 export default function LogInScreen(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { navigation } = props;
+
+  function handlePress() {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        const { user } = userCredential;
+        console.log(user.uid);
+        navigation.reset({
+          index: 0,
+          routes: [{ name: 'MemoList' }],
+        });
+      })
+      .catch((error) => {
+        Alert.alert(error.message);
+      });
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
@@ -36,12 +55,7 @@ export default function LogInScreen(props) {
         />
         <Button
           label="Submit"
-          onPress={() => {
-            navigation.reset({
-              index: 0,
-              routes: [{ name: 'MemoList' }],
-            });
-          }}
+          onPress={() => { handlePress(); }}
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
