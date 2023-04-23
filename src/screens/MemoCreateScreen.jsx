@@ -18,7 +18,8 @@ export default function MemoCreateScreen(props) {
     const db = firebase.firestore();
     const ref = db.collection(`users/${currentUser.uid}/memos`);
     ref.add({
-      bodyText: 'Hello',
+      bodyText,
+      updatedAt: new Date(),
     })
       .then((docRef) => {
         /* eslint-disable-next-line */
