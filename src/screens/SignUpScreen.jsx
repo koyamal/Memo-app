@@ -20,6 +20,7 @@ export default function SignUpScreen(props) {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
+        /* eslint-disable-next-line */
         console.log(user.uid);
         navigation.reset({
           index: 0,
@@ -27,6 +28,7 @@ export default function SignUpScreen(props) {
         });
       }).catch((error) => {
         Alert.alert(error.code);
+        /* eslint-disable-next-line */
         console.log(error.code, error.message);
       });
   }

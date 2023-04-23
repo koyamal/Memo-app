@@ -33,6 +33,7 @@ export default function LogInScreen(props) {
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then((userCredential) => {
         const { user } = userCredential;
+        /* eslint-disable-next-line */
         console.log(user.uid);
         navigation.reset({
           index: 0,
