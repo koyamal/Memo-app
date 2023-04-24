@@ -1,6 +1,6 @@
 /* eslint import/no-extraneous-dependencies: 0 */
 import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Alert } from 'react-native';
 import firebase from 'firebase';
 import CircleButton from '../components/CircleButton';
 import MemoList from '../components/MemoList';
@@ -24,6 +24,10 @@ export default function MemoListScreen(props) {
         snapshot.forEach((doc) => {
           /* eslint-disable-next-line */
           console.log(doc.id, doc.data());
+        }, (error) => {
+          /* eslint-disable-next-line */
+          console.log(error);
+          Alert.alert('Failed to Load Data');
         });
       });
     }
