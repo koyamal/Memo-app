@@ -1,5 +1,7 @@
+/* eslint import/no-extraneous-dependencies: 0 */
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
+import firebase from 'firebase';
 import CircleButton from '../components/CircleButton';
 import MemoList from '../components/MemoList';
 import LogOutButton from '../components/LogOutButton';
@@ -11,6 +13,19 @@ export default function MemoListScreen(props) {
       headerRight: () => <LogOutButton />,
     });
   }, []);
+
+  useEffect(() => {
+    const db = firebase.firestore();
+    const { currentUser } = firebase.auth();
+    const ref = db.collection(`users/${currentUser.uid}/memos`);
+    ref.onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        /* eslint-disable-next-line */
+        console.log(doc.id, doc.data());
+      });
+    });
+  });
+
   return (
     <View style={styles.container}>
       <MemoList />
