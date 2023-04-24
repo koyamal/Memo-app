@@ -17,13 +17,17 @@ export default function MemoListScreen(props) {
   useEffect(() => {
     const db = firebase.firestore();
     const { currentUser } = firebase.auth();
-    const ref = db.collection(`users/${currentUser.uid}/memos`);
-    const unsubscribe = ref.onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        /* eslint-disable-next-line */
-        console.log(doc.id, doc.data());
+    let unsubscribe = () => {};
+    if (currentUser) {
+      const ref = db.collection(`users/${currentUser.uid}/memos`);
+      unsubscribe = ref.onSnapshot((snapshot) => {
+        snapshot.forEach((doc) => {
+          /* eslint-disable-next-line */
+          console.log(doc.id, doc.data());
+        });
       });
-    });
+    }
+
     return unsubscribe;
   }, []);
 
