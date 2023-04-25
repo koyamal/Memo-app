@@ -6,6 +6,7 @@ import {
   Text,
   TouchableOpacity,
   Alert,
+  FlatList,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
@@ -19,8 +20,34 @@ import {
 export default function MemoList(props) {
   const { memos } = props;
   const navigation = useNavigation();
+
+  function renderItem({ item }) {
+    return (
+      <TouchableOpacity
+        style={styles.memoListItem}
+        onPress={() => { navigation.navigate('MemoDetail'); }}
+      >
+        <View>
+          <Text style={styles.memoListItemTitle}>{item.bodyText}</Text>
+          <Text style={styles.memoListItemDate}>{String(item.updatedAt)}</Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => { Alert.alert('Are you sure?'); }}
+          style={styles.memoDelete}
+        >
+          <Feather name="x" size={16} color="#B0B0B0" />
+        </TouchableOpacity>
+      </TouchableOpacity>
+    );
+  }
   return (
     <View>
+      <FlatList
+        data={memos}
+        /* eslint-disable-next-line */
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
       {memos.map((memo) => (
         <TouchableOpacity
           key={memo.id}
