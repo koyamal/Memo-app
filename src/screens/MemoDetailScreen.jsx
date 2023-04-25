@@ -1,5 +1,5 @@
 /* eslint import/no-extraneous-dependencies: 0 */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   View,
   ScrollView,
@@ -14,30 +14,44 @@ import CircleButton from '../components/CircleButton';
 export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
   const { id } = route.params;
+  /* eslint-disable-next-line */
   console.log(id);
+  const [memo, setMemo] = useState(null);
 
   useEffect(() => {
     const { currentUser } = firebase.auth();
-    const db = firebase.firestore();
-    const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
-    ref.onSnapshot((doc) => {
-      console.log(doc.id, doc.data());
-    });
+    let unsubscribe = () => {};
+    if (currentUser) {
+      const db = firebase.firestore();
+      const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
+      unsubscribe = ref.onSnapshot((doc) => {
+        /* eslint-disable-next-line */
+        console.log(doc.id, doc.data());
+        const data = doc.data();
+        setMemo({
+          id: doc.id,
+          bodyText: data.bodyText,
+          updatedAt: data.updatedAt.toDate(),
+        });
+      });
+    }
+    return unsubscribe;
   }, []);
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
-        <Text style={styles.memoTitle}>買い物リスト1</Text>
-        <Text style={styles.memoDate}>2023/4/17 16:05</Text>
+        <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
+        <Text style={styles.memoDate}>{memo && String(memo.updatedAt)}</Text>
       </View>
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>
-          買い物リスト
+          {memo && memo.bodyText}
+          {/* 買い物リスト
           こんにちは、いい天気ですね。
           少し風が強いですが、暖かいです。
           昨日は雨が降っていたので、どうなるか不安でしたが晴れてよかったです。
           風がある日は髪の毛が乱れて大変ですが、気持ちよさもありますね。
-          特に暑い日は風が吹くだけで涼しくなります。
+          特に暑い日は風が吹くだけで涼しくなります。 */}
         </Text>
       </ScrollView>
       <CircleButton
