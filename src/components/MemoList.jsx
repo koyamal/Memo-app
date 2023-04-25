@@ -9,8 +9,10 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Feather } from '@expo/vector-icons';
+import { shape, string, instanceOf } from 'prop-types';
 
-export default function MemoList() {
+export default function MemoList(props) {
+  const { memos } = props;
   const navigation = useNavigation();
   return (
     <View>
@@ -62,6 +64,14 @@ export default function MemoList() {
     </View>
   );
 }
+
+MemoList.propTypes = {
+  memos: shape({
+    id: string,
+    bodyText: string,
+    updatedAt: instanceOf(Date),
+  }).isRequired,
+};
 
 const styles = StyleSheet.create({
   memoListItem: {
