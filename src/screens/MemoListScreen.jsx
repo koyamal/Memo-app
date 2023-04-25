@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, Alert } from 'react-native';
 import firebase from 'firebase';

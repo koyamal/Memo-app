@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 import React, { useState, useEffect } from 'react';
 import {
   View,

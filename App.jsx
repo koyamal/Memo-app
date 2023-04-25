@@ -1,4 +1,3 @@
-/* eslint import/no-extraneous-dependencies: 0 */
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
