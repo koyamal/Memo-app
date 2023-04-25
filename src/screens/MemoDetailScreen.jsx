@@ -10,6 +10,7 @@ import firebase from 'firebase';
 import { shape, string } from 'prop-types';
 
 import CircleButton from '../components/CircleButton';
+import { dateToString } from '../utils';
 
 export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
@@ -41,7 +42,7 @@ export default function MemoDetailScreen(props) {
     <View style={styles.container}>
       <View style={styles.memoHeader}>
         <Text style={styles.memoTitle} numberOfLines={1}>{memo && memo.bodyText}</Text>
-        <Text style={styles.memoDate}>{memo && String(memo.updatedAt)}</Text>
+        <Text style={styles.memoDate}>{memo && dateToString(memo.updatedAt)}</Text>
       </View>
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>
