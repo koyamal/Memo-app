@@ -1,10 +1,12 @@
-import React from 'react';
+/* eslint import/no-extraneous-dependencies: 0 */
+import React, { useEffect } from 'react';
 import {
   View,
   ScrollView,
   Text,
   StyleSheet,
 } from 'react-native';
+import firebase from 'firebase';
 import { shape, string } from 'prop-types';
 
 import CircleButton from '../components/CircleButton';
@@ -13,6 +15,15 @@ export default function MemoDetailScreen(props) {
   const { navigation, route } = props;
   const { id } = route.params;
   console.log(id);
+
+  useEffect(() => {
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
+    const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
+    ref.onSnapshot((doc) => {
+      console.log(doc.id, doc.data());
+    });
+  }, []);
   return (
     <View style={styles.container}>
       <View style={styles.memoHeader}>
