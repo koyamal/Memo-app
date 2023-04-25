@@ -34,51 +34,6 @@ export default function MemoList(props) {
           </TouchableOpacity>
         </TouchableOpacity>
       ))}
-      <TouchableOpacity
-        style={styles.memoListItem}
-        onPress={() => { navigation.navigate('MemoDetail'); }}
-      >
-        <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト1</Text>
-          <Text style={styles.memoListItemDate}>2023/4/17 16:05</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => { Alert.alert('Are you sure?'); }}
-          style={styles.memoDelete}
-        >
-          <Feather name="x" size={16} color="#B0B0B0" />
-        </TouchableOpacity>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.memoListItem}
-        onPress={() => { navigation.navigate('MemoDetail'); }}
-      >
-        <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト2</Text>
-          <Text style={styles.memoListItemDate}>2023/4/17 16:05</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => { Alert.alert('Are you sure?'); }}
-          style={styles.memoDelete}
-        >
-          <Feather name="x" size={16} color="#B0B0B0" />
-        </TouchableOpacity>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.memoListItem}
-        onPress={() => { navigation.navigate('MemoDetail'); }}
-      >
-        <View>
-          <Text style={styles.memoListItemTitle}>買い物リスト3</Text>
-          <Text style={styles.memoListItemDate}>2023/4/17 16:05</Text>
-        </View>
-        <TouchableOpacity
-          onPress={() => { Alert.alert('Are you sure?'); }}
-          style={styles.memoDelete}
-        >
-          <Feather name="x" size={16} color="#B0B0B0" />
-        </TouchableOpacity>
-      </TouchableOpacity>
     </View>
   );
 }
