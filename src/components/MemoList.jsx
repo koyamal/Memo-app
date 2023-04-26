@@ -15,11 +15,34 @@ import {
   instanceOf,
   arrayOf,
 } from 'prop-types';
+import firebase from 'firebase';
 import { dateToString } from '../utils';
 
 export default function MemoList(props) {
   const { memos } = props;
   const navigation = useNavigation();
+
+  function deleteMemo(id) {
+    const { currentUser } = firebase.auth();
+    if (currentUser) {
+      const db = firebase.firestore();
+      const ref = db.collection(`users/${currentUser.uid}/memos`).doc(id);
+      Alert.alert('Delete Memo?', '', [
+        {
+          text: 'Cancel',
+          onPress: () => {},
+        },
+        {
+          text: 'Delete',
+          style: 'destructive',
+          onPress: () => {
+            ref.delete()
+              .catch(() => { Alert.alert('Failed to Delete'); });
+          },
+        },
+      ]);
+    }
+  }
 
   function renderItem({ item }) {
     return (
@@ -32,7 +55,7 @@ export default function MemoList(props) {
           <Text style={styles.memoListItemDate}>{dateToString(item.updatedAt)}</Text>
         </View>
         <TouchableOpacity
-          onPress={() => { Alert.alert('Are you sure?'); }}
+          onPress={() => { deleteMemo(item.id); }}
           style={styles.memoDelete}
         >
           <Feather name="x" size={16} color="#B0B0B0" />
