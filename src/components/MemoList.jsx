@@ -67,7 +67,6 @@ export default function MemoList(props) {
     <View>
       <FlatList
         data={memos}
-        /* eslint-disable-next-line */
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
