@@ -48,7 +48,7 @@ export default function MemoList(props) {
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-      {memos.map((memo) => (
+      {/* {memos.map((memo) => (
         <TouchableOpacity
           key={memo.id}
           style={styles.memoListItem}
@@ -65,7 +65,7 @@ export default function MemoList(props) {
             <Feather name="x" size={16} color="#B0B0B0" />
           </TouchableOpacity>
         </TouchableOpacity>
-      ))}
+      ))} */}
     </View>
   );
 }

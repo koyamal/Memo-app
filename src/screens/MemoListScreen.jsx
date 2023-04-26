@@ -53,7 +53,11 @@ export default function MemoListScreen(props) {
       <View style={emptyStyles.container}>
         <View style={emptyStyles.inner}>
           <Text style={emptyStyles.title}>Create First Memo!</Text>
-          <Button style={emptyStyles.button} label="Create" onPress={() => {}} />
+          <Button
+            style={emptyStyles.button}
+            label="Create"
+            onPress={() => { navigation.navigate('MemoCreate'); }}
+          />
         </View>
       </View>
     );
