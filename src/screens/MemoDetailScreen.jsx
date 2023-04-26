@@ -46,12 +46,6 @@ export default function MemoDetailScreen(props) {
       <ScrollView style={styles.memoBody}>
         <Text style={styles.memoText}>
           {memo && memo.bodyText}
-          {/* 買い物リスト
-          こんにちは、いい天気ですね。
-          少し風が強いですが、暖かいです。
-          昨日は雨が降っていたので、どうなるか不安でしたが晴れてよかったです。
-          風がある日は髪の毛が乱れて大変ですが、気持ちよさもありますね。
-          特に暑い日は風が吹くだけで涼しくなります。 */}
         </Text>
       </ScrollView>
       <CircleButton
