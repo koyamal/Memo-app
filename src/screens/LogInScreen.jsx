@@ -77,7 +77,7 @@ export default function LogInScreen(props) {
         />
         <Button
           label="Submit"
-          onPress={() => { handlePress(); }}
+          onPress={handlePress}
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Not registered?</Text>
