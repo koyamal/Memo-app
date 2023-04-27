@@ -72,7 +72,10 @@ export default function MemoListScreen(props) {
   return (
     <View style={styles.container}>
       <MemoList memos={memos} />
-      <CircleButton name="plus" onPress={() => { navigation.navigate('MemoCreate'); }} />
+      <CircleButton
+        name="plus"
+        onPress={() => { navigation.navigate('MemoCreate'); }}
+      />
     </View>
   );
 }
