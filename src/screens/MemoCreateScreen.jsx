@@ -41,7 +41,7 @@ export default function MemoCreateScreen(props) {
           autoFocus
         />
       </View>
-      <CircleButton name="check" onPress={() => { handlePress(); }} />
+      <CircleButton name="check" onPress={handlePress} />
     </KeyboardSafeView>
   );
 }
