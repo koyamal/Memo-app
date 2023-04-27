@@ -22,6 +22,16 @@ export function translateErrors(code) {
     case 'auth/wrong-password':
       error.description = 'Password is Incorrect';
       break;
+    case 'auth/email-already-in-use':
+      error.description = 'Email Address Already In Use';
+      break;
+    case 'auth/operation-not-allowed':
+      error.description = 'Action is Not Allowed';
+      break;
+    case 'auth/weak-password':
+      error.description = 'Password Too Easy';
+      break;
     default:
   }
+  return error;
 }
