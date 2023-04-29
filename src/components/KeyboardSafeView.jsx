@@ -1,6 +1,12 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+} from 'react';
 import {
-  Keyboard, Dimensions, Animated,
+  Keyboard,
+  Dimensions,
+  Animated,
 } from 'react-native';
 
 /* eslint-disable-next-line */
