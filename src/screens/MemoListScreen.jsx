@@ -28,7 +28,8 @@ export default function MemoListScreen(props) {
     let unsubscribe = () => {};
     if (currentUser) {
       setIsLoading(true);
-      const ref = db.collection(`users/${currentUser.uid}/memos`).orderBy('updatedAt', 'desc');
+      const ref = db.collection('users/C7D3LLUdIZdTjMdg20cmIqEivR12/memos').orderBy('updatedAt', 'desc');
+      // const ref = db.collection(`users/${currentUser.uid}/memos`).orderBy('updatedAt', 'desc');
       unsubscribe = ref.onSnapshot((snapshot) => {
         const userMemos = [];
         snapshot.forEach((doc) => {
