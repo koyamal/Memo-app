@@ -46,7 +46,7 @@ export default function MemoListScreen(props) {
         setIsLoading(false);
       }, () => {
         setIsLoading(false);
-        Alert.alert('Failed to Load Data');
+        Alert.alert('Load Data Faliled.');
       });
     }
     return unsubscribe;
