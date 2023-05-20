@@ -8,9 +8,10 @@ import { string, func, shape } from 'prop-types';
 
 export default function Button(props) {
   const { label, onPress, style } = props;
+
   return (
     <TouchableOpacity style={[styles.buttonContainer, style]} onPress={onPress}>
-      <Text style={styles.buttonLabel}>{ label }</Text>
+      <Text style={styles.buttonLabel}>{label}</Text>
     </TouchableOpacity>
   );
 }
