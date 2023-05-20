@@ -23,7 +23,8 @@ export default function SignUpScreen(props) {
           index: 0,
           routes: [{ name: 'MemoList' }],
         });
-      }).catch((error) => {
+      })
+      .catch((error) => {
         const errorMsg = translateErrors(error.code);
         Alert.alert(errorMsg.title, errorMsg.description);
       });
