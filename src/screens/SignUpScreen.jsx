@@ -68,6 +68,17 @@ export default function SignUpScreen(props) {
           >
             <Text style={styles.footerLink}>Log in.</Text>
           </TouchableOpacity>
+          <Text>This is sign up Screen</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.reset({
+                index: 0,
+                routes: [{ name: 'LogIn' }],
+              });
+            }}
+          >
+            <Text style={styles.footerLink}>Log in.</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
